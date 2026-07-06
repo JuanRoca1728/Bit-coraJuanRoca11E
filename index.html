@@ -27,12 +27,14 @@
             color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+        
         main{
             flex: 1;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         footer{
             display: flex;
             justify-content: space-between;
@@ -42,6 +44,7 @@
             background-color: rgb(42, 116, 116);
         }
 
+        /* Corrección 1: Estilos del h1 unificados en un solo bloque */
         header h1 {
             font-size: 2.5em;
             letter-spacing: 2px;
@@ -53,6 +56,7 @@
                 0 0 40px #00e6ff,
                 0 0 60px #00e6ff,
                 0 0 80px #00e6ff;
+            animation: neon 1.5s infinite alternate;
         }
 
         @keyframes neon {
@@ -70,10 +74,6 @@
                     0 0 80px #00e6ff;
             }
         }
-
-        header h1 {
-            animation: neon 1.5s infinite alternate;
-        }   
 
         footer img {
             transition: transform 0.3s ease;
@@ -93,87 +93,3 @@
         .card {
             background: white;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card h3 {
-            color: #4c3b9d;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .btn-pdf {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #4c3b9d;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .btn-pdf:hover {
-            background-color: #372a7a;
-            transform: scale(1.05);
-        }
-
-        .video-semana {
-            width: 100%;
-            border-radius: 12px;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Bitácora segunda y tercera unidad</h1>
-    </header>
-    
-    <main>
-        <h4>Contenido de página web</h4>
-
-        <div class="contenedor-bitacora">
-
-            <div class="card">
-                <h3>Semana 1</h3>
-                <p>Aprendí la estructura básica de HTML, etiquetas como header, main y footer.</p>
-                <a href="Recursos/pdf/Introducción Arduino (1).pdf" target="_blank" class="btn-pdf">
-                    Ver PDF
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Semana 2</h3>
-                <p>Trabajé con estilos en CSS, colores, fuentes y diseño de la página.</p>
-                <video controls class="video-semana">
-                    <source src="Recursos/video/Grabación 2 Juan Ignacio.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="card">
-                <h3>Semana 3</h3>
-                <p>Agregué imágenes, mejoré la estructura del proyecto y practiqué rutas.</p>
-                <img src="Recursos/img/foto_semana3.jpg" alt="Evidencia Semana 3" class="video-semana">
-            </div>
-
-            <div class="card">
-                <h3>Semana 4</h3>
-                <p>Aprendí la estructura básica de HTML, etiquetas como header, main y footer.</p>
-            </div>
-
-        </div>
-    </main>
-
-    <footer>
-        <span>@juanignaciorm8</span>
-        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="75" width="300" alt="Logo Colegio">
-    </footer>
-</body>
-</html>
