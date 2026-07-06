@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitácora Roca Juan Ignacio </title> 
+    <title>Bitácora Roca Juan Ignacio</title> 
     <link rel="icon" type="image/png" href="Recursos/img/logocapu.png">
 
     <style>
@@ -25,7 +25,7 @@
             padding: 40px 20px;
             background-color: #4c3b9d;
             color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0,1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         main{
             flex: 1;
@@ -56,19 +56,18 @@
         }
 
         @keyframes neon {
-                from {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #00e6ff,
-                0 0 20px #00e6ff;
+            from {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #00e6ff,
+                    0 0 20px #00e6ff;
             }
-
             to {
-            text-shadow: 
-                0 0 10px #fff,
-                0 0 20px #00e6ff,
-                0 0 40px #00e6ff,
-                0 0 80px #00e6ff;
+                text-shadow: 
+                    0 0 10px #fff,
+                    0 0 20px #00e6ff,
+                    0 0 40px #00e6ff,
+                    0 0 80px #00e6ff;
             }
         }
 
@@ -119,17 +118,28 @@
             transition: 0.3s;
         }
 
-.btn-pdf:hover {
-    background-color: #372a7a;
-    transform: scale(1.05);
-}
+        .btn-pdf:hover {
+            background-color: #372a7a;
+            transform: scale(1.05);
+        }
 
-.video-semana {
-    width: 100%;
-    border-radius: 12px;
-    margin-top: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+        .video-semana {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Nueva clase para que la imagen de la Semana 3 quede perfecta */
+        .img-semana {
+            width: 100%;
+            height: auto;
+            max-height: 200px; /* Limita la altura para que no deforme la tarjeta */
+            object-fit: cover; /* Recorta la imagen armónicamente si es muy larga */
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -140,40 +150,41 @@
     <main>
         <h4>Contenido de página web</h4>
 
-    <div class="contenedor-bitacora">
+        <div class="contenedor-bitacora">
 
-        <div class="card">
-            <h3>Semana 1</h3>
-            <p>Aprendí la estructura básica de HTML, etiquetas como header, main y footer.</p>
+            <div class="card">
+                <h3>Semana 1</h3>
+                <p>Aprendí la estructura básica de HTML, etiquetas como header, main y footer.</p>
+                <a href="Recursos/pdf/Introducción Arduino (1).pdf" target="_blank" class="btn-pdf">
+                    Ver PDF
+                </a>
+            </div>
 
-            <a href="Recursos/pdf/Introducción Arduino (1).pdf" target="_blank" class="btn-pdf">
-            Ver PDF
-            </a>
+            <div class="card">
+                <h3>Semana 2</h3>
+                <p>Trabajé con estilos en CSS, colores, fuentes y diseño de la página.</p>
+                <video controls class="video-semana">
+                    <source src="Recursos/video/Grabación 2 Juan Ignacio.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="card">
+                <h3>Semana 3</h3>
+                <p>Agregué imágenes, mejoré la estructura del proyecto y practiqué rutas.</p>
+                <img src="Recursos/img/tu-imagen.jpg" alt="Evidencia de la Semana 3" class="img-semana">
+            </div>
+
+            <div class="card">
+                <h3>Semana 4</h3>
+                <p>Aprendí la estructura básica de HTML, etiquetas como header, main y footer.</p>
+            </div>
+
         </div>
-
-        <class="card">
-            <h3>Semana 2</h3>
-            <p>Trabajé con estilos en CSS, colores, fuentes y diseño de la página.</p>
-            <video controls class="video-semana">
-    <source src="Recursos/video/Grabación 2 Juan Ignacio.mp4" type="video/mp4">
-</video>
-        </div>
-
-        <div class="card">
-            <h3>Semana 3</h3>
-            <p>Agregué imágenes, mejoré la estructura del proyecto y practiqué rutas.</p>
-        </div>
-
-        <div class="card">
-        <h3>Semana 4</h3>
-        <p>Aprendí la estructura básica de HTML, etiquetas como header, main y footer.</p>
-    </div>
-    </div>
-
     </main>
+
     <footer>
         <span>@juanignaciorm8</span>
-        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="75" width="300">
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="75" width="300" alt="Logo Colegio">
     </footer>
 </body>
 </html>
