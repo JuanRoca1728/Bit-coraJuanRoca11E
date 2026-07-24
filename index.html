@@ -7,73 +7,53 @@
     <link rel="icon" type="image/png" href="Recursos/img/logocapu.png">
 
     <style>
-        /* --- CORRECCIÓN CLAVE AQUÍ --- */
-        html {
-            /* Aplicamos el fondo al HTML para que cubra todo el documento */
-            background-image: url('Recursos/img/Captura de pantalla_22-7-2026_121623_www.bing.com.jpeg'); /* <-- Cambia tu_imagen.jpg por el nombre de tu archivo */
-            background-size: cover;           /* Cubre todo el ancho y alto disponible */
-            background-position: center top;  /* Centrada horizontalmente, alineada arriba verticalmente */
-            background-repeat: no-repeat;     /* No se repite */
-            background-attachment: scroll;    /* El fondo se mueve con el contenido (mejor para páginas largas) */
-            
-            /* Quitamos la altura fija para que crezca con el contenido */
-            height: auto; 
-            min-height: 100%;
+        /* --- ESTILOS GENERALES Y FONDO --- */
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        html {
+            /* Fondo gradiente oscuro cyberpunk sobre la imagen */
+            background: linear-gradient(135deg, rgba(15, 12, 32, 0.88), rgba(26, 16, 60, 0.92)),
+                        url('Recursos/img/Captura de pantalla_22-7-2026_121623_www.bing.com.jpeg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100%;
         }
 
         body {
             display: flex;
             flex-direction: column;
             text-align: center;
-            font-family: 'Century Gothic', AppleGothic, sans-serif;
-            color: #333333;
-            
-            /* Hacemos el cuerpo transparente para ver el fondo del HTML */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0;
             background-color: transparent; 
-            margin: 0;
-            min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la pantalla */
+            min-height: 100vh;
         }
-        /* --------------------------------- */
 
+        /* --- HEADER --- */
         header {
-            padding: 40px 20px;
-            background-color: rgba(76, 59, 157, 0.9); /* Semi-transparente */
-            color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        main {
-            flex: 1;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%; /* Asegura que ocupe el ancho disponible */
-            box-sizing: border-box;
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            border-top: 10px solid rgb(0, 0, 0);
-            background-color: rgba(42, 116, 116, 0.95); /* Semi-transparente */
-            color: white;
-            margin-top: auto; /* Empuja el footer al final si hay poco contenido */
+            padding: 40px 20px 30px;
+            background: rgba(15, 12, 32, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 230, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
-            font-size: 2.5em;
-            letter-spacing: 2px;
+            font-size: 2.8em;
+            letter-spacing: 3px;
             color: #ffffff;
+            text-transform: uppercase;
             text-shadow: 
                 0 0 5px #fff,
                 0 0 10px #fff,
                 0 0 20px #00e6ff,
-                0 0 40px #00e6ff,
-                0 0 60px #00e6ff,
-                0 0 80px #00e6ff;
+                0 0 40px #00e6ff;
             animation: neon 1.5s infinite alternate;
         }
 
@@ -89,109 +69,210 @@
                     0 0 10px #fff,
                     0 0 20px #00e6ff,
                     0 0 40px #00e6ff,
-                    0 0 80px #00e6ff;
+                    0 0 60px #00e6ff;
             }
         }
 
-        footer img {
-            transition: transform 0.3s ease;
-        }
-
-        footer img:hover {
-            transform: scale(1.2);
-        }
-
-        .contenedor-bitacora {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            padding-bottom: 30px; /* Espacio antes del footer */
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.9); /* Más opaco para leer mejor sobre el fondo */
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(5px); /* Efecto desenfoque detrás de la tarjeta */
-        }
-
-        .card h3 {
-            color: #4c3b9d;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .btn-pdf {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #4c3b9d;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .btn-pdf:hover {
-            background-color: #372a7a;
-            transform: scale(1.05);
-        }
-
-        .video-semana {
+        /* --- MAIN --- */
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
             width: 100%;
-            border-radius: 12px;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .img-semana {
-            width: 100%;
-            height: auto;
-            max-height: 200px; 
-            object-fit: cover; 
-            border-radius: 12px;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         main h4 {
-            background-color: rgba(255, 255, 255, 0.85);
+            color: #00e6ff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 230, 255, 0.3);
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(0, 230, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* --- GRID & TARJETAS (GLASSMORPHISM) --- */
+        .contenedor-bitacora {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 20px 20px;
             border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #00e6ff;
+            box-shadow: 0 0 25px rgba(0, 230, 255, 0.4),
+                        0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Badges de tecnología / formato */
+        .badge {
+            align-self: center;
+            font-size: 0.75em;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            background: rgba(0, 230, 255, 0.15);
+            color: #00e6ff;
+            border: 1px solid rgba(0, 230, 255, 0.4);
+        }
+
+        .card h3 {
+            color: #ffffff;
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #cccccc;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- BOTÓN NEÓN --- */
+        .btn-pdf {
+            display: inline-block;
+            margin-top: auto;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #4c3b9d, #00e6ff);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 230, 255, 0.3);
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        .btn-pdf:hover {
+            box-shadow: 0 0 20px #00e6ff;
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+        /* --- MULTIMEDIA (VIDEOS E IMÁGENES) --- */
+        .video-semana, .img-semana {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: auto;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.3s ease;
+        }
+
+        .img-semana {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card:hover .video-semana,
+        .card:hover .img-semana {
+            border-color: rgba(0, 230, 255, 0.5);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-top: 2px solid rgba(0, 230, 255, 0.3);
+            background: rgba(10, 8, 20, 0.95);
+            color: #aaaaaa;
+            margin-top: auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        footer span {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #00e6ff;
+            letter-spacing: 1px;
+        }
+
+        footer img {
+            max-height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        footer img:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 12px rgba(0, 230, 255, 0.6));
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            footer {
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Bitácora segunda y tercera unidad</h1>
+        <h1>Bitácora Segunda y Tercera Unidad</h1>
     </header> 
 
     <main>
-        <h4>Contenido de página web</h4>
+        <h4>Proyectos & Prácticas Arduino</h4>
 
         <div class="contenedor-bitacora">
 
             <div class="card">
+                <span class="badge">Documento PDF</span>
                 <h3>Semana 1</h3>
-                <p>En esta clase aprendimos sobre los componentes de Arduino y cómo interactuar con elementos electrónicos básicos.
-
-</p>
-                <a href="Recursos/pdf/Introducción Arduino (1).pdf" target="_blank" class="btn-pdf">
-                    Ver PDF
+                <p>En esta clase aprendimos sobre los componentes fundamentales de Arduino y cómo interactuar con elementos electrónicos básicos.</p>
+                <a href="Recursos/pdf/Introducción Arduino (1).pdf" target="_blank" rel="noopener noreferrer" class="btn-pdf">
+                    Ver Documentación PDF
                 </a>
             </div>
 
             <div class="card">
+                <span class="badge">Simulación Tinkercad</span>
                 <h3>Semana 2</h3>
-                <p>En esta clase aprenderás a diseñar y simular tu primer semáforo básico con Arduino UNO, aprovechando las herramientas y estructuras avanzadas que ofrece Tinkercad.</p>
+                <p>Diseño y simulación de un semáforo básico utilizando un Arduino UNO en Tinkercad, aplicando estructuras de código de control de tiempo.</p>
                 <video controls class="video-semana">
                     <source src="Recursos/img/8mb.video-W1U-R4kQJN9m.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
@@ -199,8 +280,9 @@
             </div>
 
             <div class="card">
+                <span class="badge">Simulación Tinkercad</span>
                 <h3>Semana 3</h3>
-                <p>En esta clase aprenderás a diseñar y programar tu primer circuito con un módulo LED RGB en Arduino UNO, utilizando técnicas y estructuras avanzadas en Tinkercad.</p>
+                <p>Diseño y programación de un circuito con un módulo LED RGB en Arduino UNO, manipulando combinaciones de colores en Tinkercad.</p>
                 <video controls class="video-semana">
                     <source src="Recursos/img/1000058921.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
@@ -208,14 +290,16 @@
             </div>
 
             <div class="card">
+                <span class="badge">Circuito Físico</span>
                 <h3>Semana 4</h3>
-                <p>El circuito emplea un Arduino UNO montado en una protoboard para enviar señales a los LEDs, los cuales están protegidos individualmente por resistencias. Asimismo, incluye un registro de desplazamiento (74HC595) para ampliar el número de salidas, junto con cables jumper y pulsadores o potenciómetro para modificar las secuencias manualmente.</p>
+                <p>Montaje físico en protoboard empleando un registro de desplazamiento (74HC595) para expandir salidas y controlar secuencias de LEDs manualmente.</p>
                 <img src="Recursos/img/IMG_6374.jpg" alt="Evidencia de la Semana 4" class="img-semana">
             </div>
 
             <div class="card">
+                <span class="badge">Circuito Físico</span>
                 <h3>Semana 5</h3>
-                <p>Descubri cómo montar mi segundo circuito de LEDs con Arduino UNO, aplicando componentes y estructuras físicas avanzadas..</p>
+                <p>Descubrí cómo montar mi segundo circuito de LEDs avanzado con Arduino UNO, aplicando componentes y estructuras físicas en protoboard.</p>
                 <video controls class="video-semana">
                     <source src="Recursos/img/ed334dc646d645d4bdb5ec7c4d676bf4.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
@@ -223,18 +307,19 @@
             </div>
 
             <div class="card">
+                <span class="badge">Sensores</span>
                 <h3>Semana 6</h3>
-                <p>Implementé un circuito típico con sensor ultrasónico (como el modelo popular HC-SR04) interactúa con un microcontrolador (como un Arduino) para medir distancias mediante ondas de sonido.</p>
+                <p>Implementación de un sensor ultrasónico (HC-SR04) con Arduino UNO para realizar la medición de distancias mediante ondas de sonido.</p>
                 <video controls class="video-semana">
                     <source src="Recursos/img/Juan Ignacio Roca.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
             </div>
 
-            <!-- SEMANA 7 -->
             <div class="card">
+                <span class="badge">Sensores</span>
                 <h3>Semana 7</h3>
-                <p>Implementé un circuito con sensor de movimiento PIR para detectar presencia y activar una alerta visual o sonora.</p>
+                <p>Implementación de un circuito con sensor de movimiento PIR para la detección de presencia y activación de alertas en tiempo real.</p>
                 <video controls class="video-semana">
                     <source src="Recursos/img/cicuitor PIR.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
@@ -246,7 +331,7 @@
 
     <footer>
         <span>@juanignaciorm8</span>
-        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="75" width="300" alt="Logo Colegio">
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" alt="Logo Colegio">
     </footer>
 </body>
 </html>
