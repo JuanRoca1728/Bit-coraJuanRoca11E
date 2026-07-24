@@ -15,8 +15,8 @@
         }
 
         html {
-            /* Fondo gradiente oscuro cyberpunk sobre la imagen */
-            background: linear-gradient(135deg, rgba(15, 12, 32, 0.88), rgba(26, 16, 60, 0.92)),
+            /* Fondo gradiente oscuro sobre la imagen */
+            background: linear-gradient(135deg, rgba(15, 12, 20, 0.90), rgba(25, 10, 15, 0.92)),
                         url('Recursos/img/Captura de pantalla_22-7-2026_121623_www.bing.com.jpeg');
             background-size: cover;
             background-position: center top;
@@ -38,10 +38,10 @@
         /* --- HEADER --- */
         header {
             padding: 40px 20px 30px;
-            background: rgba(15, 12, 32, 0.6);
+            background: rgba(15, 10, 20, 0.7);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 230, 255, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
 
         header h1 {
@@ -52,8 +52,8 @@
             text-shadow: 
                 0 0 5px #fff,
                 0 0 10px #fff,
-                0 0 20px #00e6ff,
-                0 0 40px #00e6ff;
+                0 0 20px #ff0055,
+                0 0 40px #00ff66;
             animation: neon 1.5s infinite alternate;
         }
 
@@ -61,15 +61,15 @@
             from {
                 text-shadow: 
                     0 0 5px #fff,
-                    0 0 10px #00e6ff,
-                    0 0 20px #00e6ff;
+                    0 0 10px #00ff66,
+                    0 0 20px #ff0055;
             }
             to {
                 text-shadow: 
                     0 0 10px #fff,
-                    0 0 20px #00e6ff,
-                    0 0 40px #00e6ff,
-                    0 0 60px #00e6ff;
+                    0 0 20px #00ff66,
+                    0 0 40px #ff0055,
+                    0 0 60px #00ff66;
             }
         }
 
@@ -83,9 +83,9 @@
         }
 
         main h4 {
-            color: #00e6ff;
+            color: #00ff66;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 230, 255, 0.3);
+            border: 1px solid rgba(255, 0, 85, 0.4);
             display: inline-block;
             padding: 10px 24px;
             border-radius: 30px;
@@ -93,7 +93,7 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             backdrop-filter: blur(5px);
-            box-shadow: 0 0 15px rgba(0, 230, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
             margin-bottom: 20px;
         }
 
@@ -123,12 +123,13 @@
 
         .card:hover {
             transform: translateY(-8px) scale(1.02);
-            border-color: #00e6ff;
-            box-shadow: 0 0 25px rgba(0, 230, 255, 0.4),
+            border-color: #00ff66;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4),
+                        0 0 15px rgba(255, 0, 85, 0.3),
                         0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Badges de tecnología / formato */
+        /* Badges en Verde y Rojo */
         .badge {
             align-self: center;
             font-size: 0.75em;
@@ -138,9 +139,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 12px;
-            background: rgba(0, 230, 255, 0.15);
-            color: #00e6ff;
-            border: 1px solid rgba(0, 230, 255, 0.4);
+            background: rgba(255, 0, 85, 0.15);
+            color: #ff3366;
+            border: 1px solid rgba(0, 255, 102, 0.4);
         }
 
         .card h3 {
@@ -159,25 +160,25 @@
             text-align: justify;
         }
 
-        /* --- BOTÓN NEÓN --- */
+        /* --- BOTÓN VERDE Y ROJO NEÓN --- */
         .btn-pdf {
             display: inline-block;
             margin-top: auto;
             padding: 12px 20px;
-            background: linear-gradient(135deg, #4c3b9d, #00e6ff);
+            background: linear-gradient(135deg, #cc0044, #00cc55);
             color: #ffffff;
             text-decoration: none;
             font-weight: bold;
             border-radius: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 230, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.3);
             text-transform: uppercase;
             font-size: 0.85em;
             letter-spacing: 1px;
         }
 
         .btn-pdf:hover {
-            box-shadow: 0 0 20px #00e6ff;
+            box-shadow: 0 0 20px #00ff66, 0 0 10px #ff0055;
             transform: scale(1.05);
             color: #fff;
         }
@@ -199,7 +200,7 @@
 
         .card:hover .video-semana,
         .card:hover .img-semana {
-            border-color: rgba(0, 230, 255, 0.5);
+            border-color: rgba(0, 255, 102, 0.6);
         }
 
         /* --- FOOTER --- */
@@ -208,8 +209,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
-            border-top: 2px solid rgba(0, 230, 255, 0.3);
-            background: rgba(10, 8, 20, 0.95);
+            border-top: 2px solid rgba(255, 0, 85, 0.4);
+            background: rgba(10, 8, 15, 0.95);
             color: #aaaaaa;
             margin-top: auto;
             flex-wrap: wrap;
@@ -219,7 +220,7 @@
         footer span {
             font-size: 1.1em;
             font-weight: 500;
-            color: #00e6ff;
+            color: #00ff66;
             letter-spacing: 1px;
         }
 
@@ -232,7 +233,7 @@
 
         footer img:hover {
             transform: scale(1.08);
-            filter: drop-shadow(0 0 12px rgba(0, 230, 255, 0.6));
+            filter: drop-shadow(0 0 12px rgba(255, 0, 85, 0.7));
         }
 
         /* --- RESPONSIVE --- */
