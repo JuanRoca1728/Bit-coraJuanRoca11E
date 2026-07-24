@@ -34,6 +34,43 @@
             min-height: 100vh;
         }
 
+        /* --- REPRODUCTOR DE MÚSICA EN LA ESQUINA SUPERIOR IZQUIERDA --- */
+        .reproductor-superior-izq {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+            background: rgba(15, 10, 20, 0.85);
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            padding: 10px 14px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 255, 102, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            max-width: 260px;
+        }
+
+        .reproductor-superior-izq span {
+            font-size: 0.75em;
+            font-weight: bold;
+            color: #00ff66;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .reproductor-superior-izq audio {
+            width: 220px;
+            height: 30px;
+            outline: none;
+            filter: drop-shadow(0 0 4px rgba(0, 255, 102, 0.3));
+        }
+
         /* --- HEADER --- */
         header {
             padding: 40px 20px 30px;
@@ -302,6 +339,21 @@
         }
 
         /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .reproductor-superior-izq {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin: 10px auto;
+                max-width: 90%;
+                align-items: center;
+            }
+
+            .reproductor-superior-izq audio {
+                width: 100%;
+            }
+        }
+
         @media (max-width: 600px) {
             header h1 {
                 font-size: 1.8em;
@@ -317,6 +369,15 @@
     </style>
 </head>
 <body>
+
+    <div class="reproductor-superior-izq">
+        <span>🎵 Música Ambiental</span>
+        <audio controls>
+            <source src="Recursos/audio/musica.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
     <header>
         <h1>Bitácora Segunda y Tercera Unidad</h1>
     </header> 
