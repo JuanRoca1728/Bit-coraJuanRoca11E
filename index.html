@@ -15,7 +15,6 @@
         }
 
         html {
-            /* Fondo gradiente oscuro sobre la imagen */
             background: linear-gradient(135deg, rgba(15, 12, 20, 0.90), rgba(25, 10, 15, 0.92)),
                         url('Recursos/img/Captura de pantalla_22-7-2026_121623_www.bing.com.jpeg');
             background-size: cover;
@@ -94,7 +93,38 @@
             text-transform: uppercase;
             backdrop-filter: blur(5px);
             box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* --- BARRA DE BÚSQUEDA --- */
+        .contenedor-busqueda {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .input-busqueda {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px 22px;
+            font-size: 1em;
+            border-radius: 25px;
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            background: rgba(15, 10, 20, 0.8);
+            color: #ffffff;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .input-busqueda::placeholder {
+            color: #888888;
+        }
+
+        .input-busqueda:focus {
+            border-color: #ff0055;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4), 0 0 10px rgba(0, 255, 102, 0.3);
         }
 
         /* --- GRID & TARJETAS (GLASSMORPHISM) --- */
@@ -102,7 +132,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .card {
@@ -119,6 +149,20 @@
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
+            
+            /* Animación de entrada suave */
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .card:hover {
@@ -129,19 +173,40 @@
                         0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Badges en Verde y Rojo */
+        /* --- BADGES PERSONALIZADOS SEGÚN TIPO DE CONTENIDO --- */
         .badge {
             align-self: center;
             font-size: 0.75em;
             font-weight: bold;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 12px;
+        }
+
+        .badge-pdf {
+            background: rgba(0, 255, 102, 0.15);
+            color: #00ff66;
+            border: 1px solid rgba(0, 255, 102, 0.5);
+        }
+
+        .badge-simulacion {
+            background: rgba(255, 153, 0, 0.15);
+            color: #ff9900;
+            border: 1px solid rgba(255, 153, 0, 0.5);
+        }
+
+        .badge-fisico {
+            background: rgba(255, 204, 0, 0.15);
+            color: #ffcc00;
+            border: 1px solid rgba(255, 204, 0, 0.5);
+        }
+
+        .badge-sensor {
             background: rgba(255, 0, 85, 0.15);
             color: #ff3366;
-            border: 1px solid rgba(0, 255, 102, 0.4);
+            border: 1px solid rgba(255, 0, 85, 0.5);
         }
 
         .card h3 {
@@ -259,10 +324,20 @@
     <main>
         <h4>Proyectos & Prácticas Arduino</h4>
 
-        <div class="contenedor-bitacora">
+        <div class="contenedor-busqueda">
+            <input 
+                type="text" 
+                id="buscador" 
+                class="input-busqueda" 
+                placeholder="🔍 Buscar por semana, sensor o tema..." 
+                onkeyup="filtrarSemanas()"
+            >
+        </div>
+
+        <div class="contenedor-bitacora" id="gridBitacora">
 
             <div class="card">
-                <span class="badge">Documento PDF</span>
+                <span class="badge badge-pdf">Documento PDF</span>
                 <h3>Semana 1</h3>
                 <p>En esta clase aprendimos sobre los componentes fundamentales de Arduino y cómo interactuar con elementos electrónicos básicos.</p>
                 <a href="Recursos/pdf/Introducción Arduino (1).pdf" target="_blank" rel="noopener noreferrer" class="btn-pdf">
@@ -271,7 +346,7 @@
             </div>
 
             <div class="card">
-                <span class="badge">Simulación Tinkercad</span>
+                <span class="badge badge-simulacion">Simulación Tinkercad</span>
                 <h3>Semana 2</h3>
                 <p>Diseño y simulación de un semáforo básico utilizando un Arduino UNO en Tinkercad, aplicando estructuras de código de control de tiempo.</p>
                 <video controls class="video-semana">
@@ -281,7 +356,7 @@
             </div>
 
             <div class="card">
-                <span class="badge">Simulación Tinkercad</span>
+                <span class="badge badge-simulacion">Simulación Tinkercad</span>
                 <h3>Semana 3</h3>
                 <p>Diseño y programación de un circuito con un módulo LED RGB en Arduino UNO, manipulando combinaciones de colores en Tinkercad.</p>
                 <video controls class="video-semana">
@@ -291,14 +366,14 @@
             </div>
 
             <div class="card">
-                <span class="badge">Circuito Físico</span>
+                <span class="badge badge-fisico">Circuito Físico</span>
                 <h3>Semana 4</h3>
                 <p>Montaje físico en protoboard empleando un registro de desplazamiento (74HC595) para expandir salidas y controlar secuencias de LEDs manualmente.</p>
                 <img src="Recursos/img/IMG_6374.jpg" alt="Evidencia de la Semana 4" class="img-semana">
             </div>
 
             <div class="card">
-                <span class="badge">Circuito Físico</span>
+                <span class="badge badge-fisico">Circuito Físico</span>
                 <h3>Semana 5</h3>
                 <p>Descubrí cómo montar mi segundo circuito de LEDs avanzado con Arduino UNO, aplicando componentes y estructuras físicas en protoboard.</p>
                 <video controls class="video-semana">
@@ -308,7 +383,7 @@
             </div>
 
             <div class="card">
-                <span class="badge">Sensores</span>
+                <span class="badge badge-sensor">Sensores</span>
                 <h3>Semana 6</h3>
                 <p>Implementación de un sensor ultrasónico (HC-SR04) con Arduino UNO para realizar la medición de distancias mediante ondas de sonido.</p>
                 <video controls class="video-semana">
@@ -318,7 +393,7 @@
             </div>
 
             <div class="card">
-                <span class="badge">Sensores</span>
+                <span class="badge badge-sensor">Sensores</span>
                 <h3>Semana 7</h3>
                 <p>Implementación de un circuito con sensor de movimiento PIR para la detección de presencia y activación de alertas en tiempo real.</p>
                 <video controls class="video-semana">
@@ -334,5 +409,21 @@
         <span>@juanignaciorm8</span>
         <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" alt="Logo Colegio">
     </footer>
+
+    <script>
+        function filtrarSemanas() {
+            let input = document.getElementById('buscador').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            
+            Array.from(cards).forEach(card => {
+                let texto = card.innerText.toLowerCase();
+                if (texto.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
